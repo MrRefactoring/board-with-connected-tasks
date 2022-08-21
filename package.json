@@ -1,0 +1,15 @@
+{
+  "name": "board-with-stepped-tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server ./src"
+  },
+  "repository": "https://github.com/MrRefactoring/board-with-stepped-tasks.git",
+  "author": "Vladislav Tupikin <mrrefactoring@yandex.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
