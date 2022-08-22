@@ -1,4 +1,4 @@
-## Board with connected tasks
+### Board with connected tasks
 
 ------
 
