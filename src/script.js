@@ -2,11 +2,11 @@ function drawLine(from, to) {
   const horizontalDistance = Math.max(from.offsetLeft + from.offsetWidth, to.offsetLeft) - Math.min(from.offsetLeft + from.offsetWidth, to.offsetLeft);
   const verticalDistance = Math.max(from.offsetTop, to.offsetTop) - Math.min(from.offsetTop, to.offsetTop);
 
-  const startPointTop = from.offsetTop + from.offsetHeight / 2;
-  const startPointLeft = from.offsetLeft + from.offsetWidth;
+  const startPointTopOffset = from.offsetTop + from.offsetHeight / 2;
+  const startPointLeftOffset = from.offsetLeft + from.offsetWidth;
 
-  const endPointTop = to.offsetTop + to.offsetHeight / 2;
-  const endPointLeft = to.offsetLeft + to.offsetWidth;
+  const endPointTopOffset = to.offsetTop + to.offsetHeight / 2;
+  const endPointLeftOffset = to.offsetLeft + to.offsetWidth;
 
   const scale = window.devicePixelRatio;
   const lineWidth = 2;
@@ -15,8 +15,8 @@ function drawLine(from, to) {
   const ctx = canvas.getContext('2d');
 
   canvas.style.position = 'absolute';
-  canvas.style.top = `${Math.min(startPointTop, endPointTop)}px`;
-  canvas.style.left = `${Math.min(startPointLeft, endPointLeft)}px`;
+  canvas.style.top = `${Math.min(startPointTopOffset, endPointTopOffset)}px`;
+  canvas.style.left = `${Math.min(startPointLeftOffset, endPointLeftOffset)}px`;
   canvas.style.width = `${horizontalDistance}px`;
   canvas.style.height = `${verticalDistance || 4}px`;
   canvas.width = Math.floor(horizontalDistance * scale);
@@ -52,10 +52,10 @@ function drawLine(from, to) {
   console.log('from', from);
   console.log('to', to);
 
-  console.log('start point top', startPointTop);
-  console.log('start point left', startPointLeft);
-  console.log('end point top', endPointTop);
-  console.log('end point left', endPointLeft);
+  console.log('start point top offset', startPointTopOffset);
+  console.log('start point left offset', startPointLeftOffset);
+  console.log('end point top offset', endPointTopOffset);
+  console.log('end point left offset', endPointLeftOffset);
 
   console.log('horizontal distance', horizontalDistance);
   console.log('vertical distance', verticalDistance);
