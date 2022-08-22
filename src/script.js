@@ -58,17 +58,6 @@ function drawLine(from, to) {
   ctx.stroke();
 
   document.body.appendChild(canvas);
-
-  console.log('from', from);
-  console.log('to', to);
-
-  console.log('start point top offset', startPointTopOffset);
-  console.log('start point left offset', startPointLeftOffset);
-  console.log('end point top offset', endPointTopOffset);
-  console.log('end point left offset', endPointLeftOffset);
-
-  console.log('horizontal distance', horizontalDistance);
-  console.log('vertical distance', verticalDistance);
 }
 
 const links = [
@@ -80,17 +69,9 @@ const links = [
   { from: 'todo_4', to: 'inprogress_4' },
 ];
 
-function render() {
-  document.querySelectorAll(`canvas`).forEach(element => element.remove());
+for (const link of links) {
+  const fromElement = document.querySelector(`#${link.from}`);
+  const toElement = document.querySelector(`#${link.to}`);
 
-  for (const link of links) {
-    const fromElement = document.querySelector(`#${link.from}`);
-    const toElement = document.querySelector(`#${link.to}`);
-
-    drawLine(fromElement, toElement);
-  }
+  drawLine(fromElement, toElement);
 }
-
-window.addEventListener('resize', render);
-
-render();
