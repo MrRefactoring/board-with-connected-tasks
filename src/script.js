@@ -8,21 +8,25 @@ function drawLine(from, to) {
   const endPointTop = to.offsetTop + to.offsetHeight / 2;
   const endPointLeft = to.offsetLeft + to.offsetWidth;
 
+  const scale = window.devicePixelRatio;
+  const lineWidth = 2;
+
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-
-  const lineWidth = 2;
 
   canvas.style.position = 'absolute';
   canvas.style.top = `${Math.min(startPointTop, endPointTop)}px`;
   canvas.style.left = `${Math.min(startPointLeft, endPointLeft)}px`;
-  canvas.width = horizontalDistance;
-  canvas.height = verticalDistance ? verticalDistance + lineWidth + 1 : lineWidth * 2;
+  canvas.style.width = `${horizontalDistance}px`;
+  canvas.style.height = `${verticalDistance || 4}px`;
+  canvas.width = Math.floor(horizontalDistance * scale);
+  canvas.height = Math.floor((verticalDistance ? verticalDistance + lineWidth + 1 : lineWidth * 2) * scale);
 
   ctx.lineWidth = lineWidth;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
   ctx.strokeStyle = '#ff5722';
+  ctx.scale(scale, scale);
 
   if (!verticalDistance) {
     ctx.moveTo(0, lineWidth);
