@@ -1,4 +1,4 @@
-function drawLine(from, to) {
+function drawLine(container, from, to) {
   const startPointTopOffset = from.offsetTop + from.offsetHeight / 2;
   const startPointLeftOffset = from.offsetLeft + from.offsetWidth;
 
@@ -57,7 +57,7 @@ function drawLine(from, to) {
 
   ctx.stroke();
 
-  document.body.appendChild(canvas);
+  container.appendChild(canvas);
 }
 
 const links = [
@@ -69,9 +69,11 @@ const links = [
   { from: 'todo_4', to: 'inprogress_4' },
 ];
 
+const board = document.querySelector('.board');
+
 for (const link of links) {
   const fromElement = document.querySelector(`#${link.from}`);
   const toElement = document.querySelector(`#${link.to}`);
 
-  drawLine(fromElement, toElement);
+  drawLine(board, fromElement, toElement);
 }

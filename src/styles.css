@@ -32,11 +32,14 @@ header {
 .board {
   display: flex;
   flex-grow: 1;
+  position: relative;
 
   width: 100%;
+  overflow-x: auto;
 }
 
 .board .column {
+  min-width: 350px;
   width: 350px;
   padding: 1rem;
   border-radius: 5px;
